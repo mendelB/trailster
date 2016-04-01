@@ -20,7 +20,7 @@ module Api
       def create
         hike = Hike.find(params[:hike_id])
         comment = hike.comments.create(comment_params)
-        respond_with(comment, :location => api_v1_hike_comment_url(hike.id, comment.id))
+        respond_with :api, :v1, hike, comment
       end
 
       def update
